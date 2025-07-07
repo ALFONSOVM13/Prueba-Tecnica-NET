@@ -1,0 +1,55 @@
+@TravelRequests.Api_HostAddress = http://localhost:5265
+
+### Registro de Usuario
+POST {{TravelRequests.Api_HostAddress}}/api/users/register
+Content-Type: application/json
+
+{
+    "email": "usuario@ejemplo.com",
+    "password": "Password123!",
+    "firstName": "Usuario",
+    "lastName": "Ejemplo"
+}
+
+### Inicio de Sesión
+POST {{TravelRequests.Api_HostAddress}}/api/users/login
+Content-Type: application/json
+
+{
+    "email": "usuario@ejemplo.com",
+    "password": "Password123!"
+}
+
+### Crear Solicitud de Viaje
+POST {{TravelRequests.Api_HostAddress}}/api/travelrequests
+Content-Type: application/json
+Authorization: Bearer {{authToken}}
+
+{
+    "destination": "Madrid",
+    "startDate": "2024-04-01",
+    "endDate": "2024-04-05",
+    "purpose": "Reunión de negocios"
+}
+
+### Obtener Todas las Solicitudes
+GET {{TravelRequests.Api_HostAddress}}/api/travelrequests
+Authorization: Bearer {{authToken}}
+
+### Obtener Solicitud por ID
+GET {{TravelRequests.Api_HostAddress}}/api/travelrequests/1
+Authorization: Bearer {{authToken}}
+
+### Actualizar Estado de Solicitud
+PUT {{TravelRequests.Api_HostAddress}}/api/travelrequests/1/status
+Content-Type: application/json
+Authorization: Bearer {{authToken}}
+
+{
+    "status": "Approved"
+}
+
+GET {{TravelRequests.Api_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
